@@ -41,3 +41,9 @@ alias la="ls -a"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+## keep background processes at full speed
+setopt nobgnice
+## restart running processes on exit
+setopt nohup
+setopt nocheckjobs
