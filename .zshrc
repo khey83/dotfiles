@@ -1,49 +1,26 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
+# Prompt
+autoload colors
+colors
+local p_cdir="%B%F{blue}[%~]%f%b"$'\n'
+local p_info="%n@%m"
+local p_mark="%B%(!,#,>)%b"
+PROMPT=" $p_cdir$p_info $p_mark "
+PROMPT2="(%_) $p_mark "
 
 # Aliases
 alias ll="ls -alh"
 alias la="ls -a"
+alias java="java -Dfile.encoding=UTF-8"
+alias javac="javac -J-Dfile.encoding=UTF-8"
+alias jar="jar -J-Dfile.encoding=UTF-8"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# 補完
+autoload -U compinit && compinit
 
 ## keep background processes at full speed
 setopt nobgnice
+
 ## restart running processes on exit
 setopt nohup
 setopt nocheckjobs
+
