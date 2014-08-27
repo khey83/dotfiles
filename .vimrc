@@ -13,6 +13,7 @@ set smartindent "インデントを文脈に合わせて増減させる
 
 set directory=~/.vim/tmp "スワップファイルの保存先
 set backupdir=~/.vim/tmp "バックアップファイルの保存先
+set undodir=~/.vim/tmp "undoファイルの保存先
 
 " .vimrcを開く
 nnoremap mrc :<C-u>edit $MYVIMRC<CR>
