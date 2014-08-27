@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+git_bundles = [ 
+  "https://github.com/Shougo/unite.vim.git",
+  "https://github.com/Shougo/vimproc.vim.git",
+  "https://github.com/tpope/vim-surround.git",
+  "https://github.com/derekwyatt/vim-scala.git",
+]
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "bundle")
+FileUtils.cd(bundles_dir)
+bundles_dir = Dir.pwd
+
+git_bundles.each do |url|
+  FileUtils.cd(bundles_dir)
+
+  dir = url.split('/').last.sub(/\.git$/, '')
+
+  if Dir.exists?(dir) then
+    puts "update #{dir}"
+    FileUtils.cd(dir)
+    `git pull`
+  else
+    puts "unpacking #{url} into #{dir}"
+    `git clone #{url} #{dir}`
+  end
+end

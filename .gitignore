@@ -1,2 +1,5 @@
 .DS_Store
-.vim/
+.vim/autoload
+.vim/bundle
+.vim/colors
+.vim/tmp
