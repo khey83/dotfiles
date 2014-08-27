@@ -1,3 +1,6 @@
+"============================"
+" 基本設定
+"============================"
 set nocompatible
 
 colorscheme desert "カラースキーマ
@@ -16,28 +19,34 @@ nnoremap mrc :<C-u>edit $MYVIMRC<CR>
 " .vimrcを読み込む
 nnoremap mload :<C-u>source $MYVIMRC<CR>
 
-" 以下プラグイン設定
+"============================"
+" プラグイン設定
+"============================"
 
-"" pathogen.vim
+"++++++++++++++++++++++++++++"
+" pathogen.vim
+"++++++++++++++++++++++++++++"
 call pathogen#infect()
 call pathogen#helptags()
 
-"" unite.vim
-nnoremap [unite] <Nop>
-nmap <Space>f [unite]
- 
-"unite general settings
+"++++++++++++++++++++++++++++"
+" unite.vim
+"++++++++++++++++++++++++++++"
 "インサートモードで開始
 let g:unite_enable_start_insert = 1
 "最近開いたファイル履歴の保存数
 let g:unite_source_file_mru_limit = 50
- 
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
- 
+
+"uniteを起動する接頭辞
+nnoremap [unite] <Nop>
+nmap ,u [unite]
 "現在開いているファイルのディレクトリ下のファイル一覧。
 "開いていない場合はカレントディレクトリ
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file_rec/async:app/controllers/ <CR>
+"ファイルの新規作成
+nnoremap <silent> [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 "バッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 "レジスタ一覧
