@@ -12,12 +12,9 @@ set directory=~/.vim/tmp "スワップファイルの保存先
 set backupdir=~/.vim/tmp "バックアップファイルの保存先
 
 " .vimrcを開く
-nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
+nnoremap mrc :<C-u>edit $MYVIMRC<CR>
 " .vimrcを読み込む
-nnoremap <Space>, :<C-u>source $MYVIMRC<CR>
-
-" Leader key
-map \ <Leader>
+nnoremap mload :<C-u>source $MYVIMRC<CR>
 
 " 以下プラグイン設定
 
