@@ -54,11 +54,9 @@ nnoremap <ESC><ESC> :<C-u>noh<CR>
 nnoremap <C-p> "0p
 vnoremap <C-p> "0p
 
-"============================"
+"==============================================="
 " プラグイン設定
-"============================"
-
-
+"==============================================="
 "++++++++++++++++++++++++++++"
 " unite.vim
 "++++++++++++++++++++++++++++"
@@ -68,7 +66,6 @@ let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 50
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
-
 "uniteを起動する接頭辞
 nnoremap [unite] <Nop>
 nmap ,u [unite]
