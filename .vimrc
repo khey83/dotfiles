@@ -15,10 +15,12 @@ set directory=~/.vim/tmp "スワップファイルの保存先
 set backupdir=~/.vim/tmp "バックアップファイルの保存先
 set undodir=~/.vim/tmp "undoファイルの保存先
 
-" .vimrcを開く
+".vimrcを開く
 nnoremap mrc :<C-u>edit $MYVIMRC<CR>
-" .vimrcを読み込む
+".vimrcを読み込む
 nnoremap mload :<C-u>source $MYVIMRC<CR>
+"検索のハイライトを消す
+nnoremap <ESC><ESC> :<C-u>noh<CR>
 
 "============================"
 " プラグイン設定
