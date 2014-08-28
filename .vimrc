@@ -50,6 +50,9 @@ nnoremap mrc :<C-u>edit $MYVIMRC<CR>
 nnoremap mload :<C-u>source $MYVIMRC<CR>
 "検索のハイライトを消す
 nnoremap <ESC><ESC> :<C-u>noh<CR>
+"0レジスタペースト
+nnoremap <C-p> "0p
+vnoremap <C-p> "0p
 
 "============================"
 " プラグイン設定
