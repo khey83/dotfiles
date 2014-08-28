@@ -1,7 +1,36 @@
-"============================"
-" 基本設定
-"============================"
 set nocompatible
+"==============================================="
+" プラグイン管理(neobundle.vim)
+"==============================================="
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+filetype off
+filetype plugin indent off
+call neobundle#begin(expand('~/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'derekwyatt/vim-scala'
+
+call neobundle#end()
+filetype plugin indent on
+
+"==============================================="
+" 基本設定
+"==============================================="
 
 colorscheme desert "カラースキーマ
 
@@ -26,11 +55,6 @@ nnoremap <ESC><ESC> :<C-u>noh<CR>
 " プラグイン設定
 "============================"
 
-"++++++++++++++++++++++++++++"
-" pathogen.vim
-"++++++++++++++++++++++++++++"
-call pathogen#infect()
-call pathogen#helptags()
 
 "++++++++++++++++++++++++++++"
 " unite.vim
