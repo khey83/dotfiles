@@ -46,28 +46,33 @@ let g:unite_source_file_mru_filename_format = ''
 nnoremap [unite] <Nop>
 nmap ,u [unite]
 "現在開いているファイルのディレクトリ下のファイル一覧。
-"開いていない場合はカレントディレクトリ
-nnoremap <silent> [unite]f :<C-u>Unite file_rec/async:app/controllers/ <CR>
+nnoremap [unite]f :<C-u>Unite file_rec/async<CR>
+"modelsディレクトリ下のファイル一覧。
+nnoremap [unite]m :<C-u>Unite file_rec/async:app/models/<CR>
+"viewsディレクトリ下のファイル一覧。
+nnoremap [unite]c :<C-u>Unite file_rec/async:app/views/<CR>
+"controllersディレクトリ下のファイル一覧。
+nnoremap [unite]c :<C-u>Unite file_rec/async:app/controllers/<CR>
 "ファイルの新規作成
-nnoremap <silent> [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
+nnoremap [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
 "バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap [unite]b :<C-u>Unite buffer<CR>
 "レジスタ一覧
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap [unite]r :<C-u>Unite -buffer-name=register register<CR>
 "最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+"nnoremap [unite]m :<C-u>Unite file_mru<CR>
 "ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+"nnoremap [unite]c :<C-u>Unite bookmark<CR>
 "ブックマークに追加
-nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+"nnoremap [unite]a :<C-u>UniteBookmarkAdd<CR>
 "uniteを開いている間のキーマッピング
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
 	"ESCでuniteを終了
 	nmap <buffer> <ESC> <Plug>(unite_exit)
-	"入力モードのときjjでノーマルモードに移動
+	"挿入モードのときjjでノーマルモードに移動
 	imap <buffer> jj <Plug>(unite_insert_leave)
-	"入力モードのときctrl+wでバックスラッシュも削除
+	"挿入モードのときctrl+wでバックスラッシュも削除
 	imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 	"ctrl+jで縦に分割して開く
 	nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -78,4 +83,7 @@ function! s:unite_my_settings()"{{{
 	"ctrl+oでその場所に開く
 	nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 	inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+	"ctrl+tで新しいタブで開く
+	nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+	inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 endfunction"}}}
