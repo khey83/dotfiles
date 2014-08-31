@@ -22,6 +22,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'derekwyatt/vim-scala'
 
@@ -110,3 +111,10 @@ function! s:unite_my_settings()"{{{
 	nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 	inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 endfunction"}}}
+
+"+++++++++++++++++++++++++++++++++++++++++++++++"
+" vimfiler.vim
+"+++++++++++++++++++++++++++++++++++++++++++++++"
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer = 1
+noremap tf :<C-u>VimFiler<CR>
