@@ -49,7 +49,7 @@ nnoremap mrc :<C-u>edit $MYVIMRC<CR>
 ".vimrcを読み込む
 nnoremap mload :<C-u>source $MYVIMRC<CR>
 "検索のハイライトを消す
-nnoremap <ESC><ESC> :<C-u>noh<CR>
+nnoremap <S-h> :<C-u>noh<CR>
 "0レジスタペースト
 nnoremap <C-p> "0p
 vnoremap <C-p> "0p
