@@ -66,6 +66,9 @@ let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 50
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
+"絞り込みで曖昧検索をする
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 "uniteを起動する接頭辞
 nnoremap [unite] <Nop>
 nmap ,u [unite]
