@@ -69,19 +69,18 @@ let g:unite_source_file_mru_filename_format = ''
 "絞り込みで曖昧検索をする
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
+"キーバインド
 "uniteを起動する接頭辞
 nnoremap [unite] <Nop>
-nmap ,u [unite]
+nmap <S-t> [unite]
 "現在開いているファイルのディレクトリ下のファイル一覧。
-nnoremap [unite]f :<C-u>Unite file_rec/async<CR>
+nnoremap [unite]f :<C-u>Unite -buffer-name=files file_rec/async<CR>
 "modelsディレクトリ下のファイル一覧。
-nnoremap [unite]m :<C-u>Unite file_rec/async:app/models/<CR>
+nnoremap [unite]m :<C-u>Unite -buffer-name=files file_rec/async:app/models/<CR>
 "viewsディレクトリ下のファイル一覧。
-nnoremap [unite]c :<C-u>Unite file_rec/async:app/views/<CR>
+nnoremap [unite]c :<C-u>Unite -buffer-name=files file_rec/async:app/views/<CR>
 "controllersディレクトリ下のファイル一覧。
-nnoremap [unite]c :<C-u>Unite file_rec/async:app/controllers/<CR>
-"ファイルの新規作成
-nnoremap [unite]n :<C-u>UniteWithBufferDir file file/new -buffer-name=file<CR>
+nnoremap [unite]c :<C-u>Unite -buffer-name=files file_rec/async:app/controllers/<CR>
 "バッファ一覧
 nnoremap [unite]b :<C-u>Unite buffer<CR>
 "レジスタ一覧
