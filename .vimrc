@@ -22,8 +22,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'terryma/vim-multiple-cursors'
+
 NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
