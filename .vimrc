@@ -39,6 +39,8 @@ set tabstop=2 "画面上でタブが占める幅
 set shiftwidth=2 "自動インデントの幅
 set autoindent "改行でインデントを引き継ぐ
 set smartindent "インデントを文脈に合わせて増減させる
+set number "行番号を表示させる
+set visualbell t_vb= "ビープ音を消す。また、画面のフラッシュも無効にする
 
 set directory=~/.vim/tmp "スワップファイルの保存先
 set backupdir=~/.vim/tmp "バックアップファイルの保存先
