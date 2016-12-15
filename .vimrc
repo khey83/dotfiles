@@ -1,64 +1,142 @@
-set nocompatible
+set encoding=utf-8
+scriptencoding utf-8
+" ↑1行目は読み込み時の文字コードの設定
+" ↑2行目はVim Script内でマルチバイトを使う場合の設定
+" Vim scritptにvimrcも含まれるので、日本語でコメントを書く場合は先頭にこの設定が必要になる
+
 "==============================================="
-" プラグイン管理(neobundle.vim)
+" プラグイン管理(NeoBundle)
 "==============================================="
 if has('vim_starting')
+  " 初回起動時のみruntimepathにNeoBundleのパスを指定する
   set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+  " NeoBundleが未インストールであればgit cloneする
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install NeoBundole..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundole.vim")
+  endif
 endif
 
-filetype off
-filetype plugin indent off
 call neobundle#begin(expand('~/.vim/bundle'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'terryma/vim-multiple-cursors'
+" インストールするプラグインを以下に記述
 
+" NeoBundle自身を管理
+NeoBundleFetch 'Shougo/neobundle.vim'
+" カラースキームmolokai
+NeoBundle 'tomasr/molokai'
+" ステータスラインの表示内容強化
+NeoBundle 'itchyny/lightline.vim'
+" 末尾の全角と半角の空白文字を赤くハイライト
+NeoBundle 'bronson/vim-trailing-whitespace'
+" インデントの可視化
+NeoBundle 'Yggdroot/indentLine'
+" Unite
+NeoBundle 'Shougo/unite.vim'
+" NerdTree
+NeoBundle 'scrooloose/nerdtree'
+" VimSurround
+NeoBundle 'tpope/vim-surround'
+" VimScala
 NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
+
+" ファイルタイプ別のプラグイン/インデントを有効にする
 filetype plugin indent on
 
+" 未インストールのプラグインがあるかどうかチェックする
+NeoBundleCheck
+
 "==============================================="
-" 基本設定
+" 文字コード
 "==============================================="
-colorscheme desert "カラースキーマ
+set fileencoding=utf-8 " 保存時の文字コード
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別
+set fileformats=unix,dos,mac " 改行コードの自動判別
+set ambiwidth=double " □や○が崩れる問題を解決
 
-set expandtab "タブ入力をスペースに置き換える
-set tabstop=2 "画面上でタブが占める幅
-set shiftwidth=2 "自動インデントの幅
-set autoindent "改行でインデントを引き継ぐ
-set smartindent "インデントを文脈に合わせて増減させる
-set number "行番号を表示させる
-set visualbell t_vb= "ビープ音を消す。また、画面のフラッシュも無効にする
+"==============================================="
+" タブ・インデント
+"==============================================="
+set expandtab " タブをスペースに置き換える
+set tabstop=2 " 画面上でタブが占める幅
+set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set autoindent " 改行でインデントを引き継ぐ
+set smartindent " インデントを文脈に合わせて増減させる
+set shiftwidth=2 " 自動インデントの幅
 
-set directory=~/.vim/tmp "スワップファイルの保存先
-set backupdir=~/.vim/tmp "バックアップファイルの保存先
-set undodir=~/.vim/tmp "undoファイルの保存先
+"==============================================="
+" 文字列検索
+"==============================================="
+set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
+set ignorecase " 検索パターンに大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set hlsearch " 検索結果をハイライト
 
-".vimrcを開く
-nnoremap mrc :<C-u>edit $MYVIMRC<CR>
-".vimrcを読み込む
-nnoremap mload :<C-u>source $MYVIMRC<CR>
-"検索のハイライトを消す
-nnoremap <S-h> :<C-u>noh<CR>
-"0レジスタペースト
-nnoremap <C-p> "0p
-vnoremap <C-p> "0p
+" ビジュアルモードで選択した範囲を「*」で検索可能にする
+vnoremap * "zy:let @/ = @z<CR>n
+
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+"==============================================="
+" カーソル
+"==============================================="
+set whichwrap=b,s,h,l,<,>,[,],~" カーソルの左右移動で行末から次の行の行頭へ移動する
+set number " 行番号を表示させる
+set cursorline " カーソルラインをハイライト
+
+" カーソル行全体をハイライト
+highlight CursorLine cterm=NONE ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
+
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk
+
+set display=lastline " 最終行で表示できない文字を出来るだけ表示する
+
+"==============================================="
+" 括弧・タグジャンプ
+"==============================================="
+set showmatch " 括弧の対応関係を一瞬表示する
+source $VIMRUNTIME/macros/matchit.vim " Vimの%を拡張する
+
+"==============================================="
+" コマンド補完
+"==============================================="
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンドの履歴数
+
+"==============================================="
+" マウスの有効化
+"==============================================="
+if has('mouse')
+  set mouse=a
+  if has('mouse_sgr')
+    set ttymouse=sgr
+  elseif v:version > 703 || v:version is 703 && has('patch632')
+    set ttymouse=sgr
+  else
+    set ttymouse=xterm2
+  endif
+endif
+
+"==============================================="
+" スワップ・バックアップファイル
+"==============================================="
+set noswapfile " スワップファイルを作成しない
+set nobackup " バックアップファイルを作成しない
+
+"==============================================="
+" キー入れ替え
+"==============================================="
+" ; <-> : (ノーマルモードのみ)
+noremap ; :
+noremap : ;
 
 "==============================================="
 " プラグイン設定
@@ -119,10 +197,17 @@ function! s:unite_my_settings()"{{{
 	nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 	inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
 endfunction"}}}
+"-----------------------------------------------"
+" molokaiの設定
+"-----------------------------------------------"
+if neobundle#is_installed('molokai') " molokaiがインストールされていれば
+  colorscheme molokai " カラースキームにmolokaiを設定する
+endif
 
-"+++++++++++++++++++++++++++++++++++++++++++++++"
-" vimfiler.vim
-"+++++++++++++++++++++++++++++++++++++++++++++++"
-let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_as_default_explorer = 1
-noremap tf :<C-u>VimFiler<CR>
+"-----------------------------------------------"
+" ステータスラインの設定
+"-----------------------------------------------"
+set laststatus=2
+set showmode " 現在モードを表示
+set showcmd " 打ったコマンドをステータスラインの下に表示
+set ruler " ステータスラインの右側にカーソルの現在位置を表示する
