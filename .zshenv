@@ -7,10 +7,8 @@ scala_home=(
 # PATH
 typeset -U path
 path=(
-  # 自分用
-  $HOME/local/bin(N-/)
-  # Scala
   $SCALA_HOME/bin(N-/)
+  $HOME/local/bin(N-/)
   # システム
   /usr/local/bin(N-/)
   /usr/bin(N-/)
