@@ -8,7 +8,7 @@ PROMPT=" $p_cdir$p_info $p_mark "
 PROMPT2="(%_) $p_mark "
 
 # Aliases
-alias ll="ls -alh"
+alias ll="ls -lh"
 alias la="ls -a"
 alias java="java -Dfile.encoding=UTF-8"
 alias javac="javac -J-Dfile.encoding=UTF-8"
