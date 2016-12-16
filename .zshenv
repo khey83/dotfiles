@@ -15,6 +15,7 @@ typeset -U path
 path=(
   $SCALA_HOME/bin(N-/)
   $JAVA_HOME/bin(N-/)
+  $HOME/local/node/bin(N-/)
   $HOME/local/bin(N-/)
   # システム
   /usr/local/bin(N-/)
