@@ -17,7 +17,7 @@ path=(
   $JAVA_HOME/bin(N-/)
   $HOME/local/node/bin(N-/)
   $HOME/local/bin(N-/)
-  # システム
+
   /usr/local/bin(N-/)
   /usr/bin(N-/)
   /bin(N-/)
