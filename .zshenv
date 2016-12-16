@@ -1,3 +1,9 @@
+# JAVA_HOME
+typeset -xT JAVA_HOME java_home
+java_home=(
+    $HOME/local/java(N-/)
+)
+
 # SCALA_HOME
 typeset -xT SCALA_HOME scala_home
 scala_home=(
@@ -8,6 +14,7 @@ scala_home=(
 typeset -U path
 path=(
   $SCALA_HOME/bin(N-/)
+  $JAVA_HOME/bin(N-/)
   $HOME/local/bin(N-/)
   # システム
   /usr/local/bin(N-/)
