@@ -9,7 +9,7 @@ PROMPT2="(%_) $p_mark "
 
 # Aliases
 alias ll="ls -lh"
-alias la="ls -a"
+alias la="ls -lha"
 alias java="java -Dfile.encoding=UTF-8"
 alias javac="javac -J-Dfile.encoding=UTF-8"
 alias jar="jar -J-Dfile.encoding=UTF-8"
