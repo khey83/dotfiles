@@ -2,9 +2,8 @@
 autoload colors
 colors
 local p_cdir="%B%F{blue}[%~]%f%b"$'\n'
-local p_info="%n@%m"
-local p_mark="%B%(!,#,>)%b"
-PROMPT=" $p_cdir$p_info $p_mark "
+local p_mark="%B%(!,#,%%)%b"
+PROMPT=" $p_cdir $p_mark "
 PROMPT2="(%_) $p_mark "
 
 # Aliases
