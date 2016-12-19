@@ -1,4 +1,4 @@
-# Prompt
+# プロンプト
 autoload colors
 colors
 local p_cdir="%B%F{blue}[%~]%f%b"$'\n'
@@ -6,7 +6,7 @@ local p_mark="%B%(!,#,%%)%b"
 PROMPT=" $p_cdir $p_mark "
 PROMPT2="(%_) $p_mark "
 
-# Aliases
+# エイリアス
 alias ll="ls -lh"
 alias la="ls -lha"
 alias java="java -Dfile.encoding=UTF-8"
