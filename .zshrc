@@ -27,6 +27,9 @@ alias jar="jar -J-Dfile.encoding=UTF-8"
 # 補完
 autoload -U compinit && compinit
 
+# tmuxでの実行時にxterm-256colorを設定する
+[[ $TMUX != "" ]] && export TERM=xterm-256color
+
 ## keep background processes at full speed
 setopt nobgnice
 
