@@ -213,3 +213,10 @@ set laststatus=2
 set showmode " 現在モードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの現在位置を表示する
+
+"-----------------------------------------------"
+" NerdTree
+"-----------------------------------------------"
+nnoremap <silent> <C-j> :<C-u>NERDTreeToggle<CR> " C-jでNERDTreeを開く
+let g:NERDTreeShowHidden=1 " ドットで始まるファイル/ディレクトリを表示
+
