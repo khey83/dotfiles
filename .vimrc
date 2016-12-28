@@ -211,9 +211,11 @@ function! s:unite_my_settings()"{{{
 endfunction"}}}
 
 "-----------------------------------------------"
-" molokaiの設定
+" colorschemeの設定
 "-----------------------------------------------"
 if neobundle#is_installed('molokai') " molokaiがインストールされていれば
+  autocmd ColorScheme * highlight Comment cterm=bold ctermfg=250 guifg=#bcbcbc
+  autocmd ColorScheme * highlight Delimiter ctermfg=250 guifg=#bcbcbc
   colorscheme molokai " カラースキームにmolokaiを設定する
 endif
 
