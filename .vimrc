@@ -166,27 +166,16 @@ let g:unite_source_file_mru_filename_format = ''
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 "キーバインド
-"uniteを起動する接頭辞
-nnoremap [unite] <Nop>
-nmap <S-t> [unite]
 "現在開いているファイルのディレクトリ下のファイル一覧。
-nnoremap [unite]f :<C-u>Unite -buffer-name=files file_rec/async<CR>
-"modelsディレクトリ下のファイル一覧。
-nnoremap [unite]m :<C-u>Unite -buffer-name=files file_rec/async:app/models/<CR>
-"viewsディレクトリ下のファイル一覧。
-nnoremap [unite]c :<C-u>Unite -buffer-name=files file_rec/async:app/views/<CR>
-"controllersディレクトリ下のファイル一覧。
-nnoremap [unite]c :<C-u>Unite -buffer-name=files file_rec/async:app/controllers/<CR>
+nnoremap <Leader>f :<C-u>Unite -buffer-name=files file_rec/async<CR>
 "バッファ一覧
-nnoremap [unite]b :<C-u>Unite buffer<CR>
-"レジスタ一覧
-nnoremap [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <Leader>b :<C-u>Unite buffer<CR>
 "最近使用したファイル一覧
-"nnoremap [unite]m :<C-u>Unite file_mru<CR>
+"nnoremap <Leader>m :<C-u>Unite file_mru<CR>
 "ブックマーク一覧
-"nnoremap [unite]c :<C-u>Unite bookmark<CR>
+"nnoremap <Leader>c :<C-u>Unite bookmark<CR>
 "ブックマークに追加
-"nnoremap [unite]a :<C-u>UniteBookmarkAdd<CR>
+"nnoremap <Leader>a :<C-u>UniteBookmarkAdd<CR>
 "uniteを開いている間のキーマッピング
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
@@ -231,8 +220,8 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの現在位置を表示する
 
 "-----------------------------------------------"
-" NerdTree
+" NERDTree
 "-----------------------------------------------"
-nnoremap <silent> <C-j> :<C-u>NERDTreeToggle<CR> " C-jでNERDTreeを開く
+nnoremap <silent> <Leader>n :<C-u>NERDTreeToggle<CR> " NERDTreeを開く
 let g:NERDTreeShowHidden=1 " ドットで始まるファイル/ディレクトリを表示
 
