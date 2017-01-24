@@ -209,7 +209,7 @@ if neobundle#is_installed('molokai') " molokaiがインストールされてい�
 endif
 
 " SyntaxInfoコマンドを読み込む(カーソル位置の書式情報を出力する)
-source .vim/syntax-info.vim
+source ~/.vim/syntax-info.vim
 
 "-----------------------------------------------"
 " ステータスラインの表示内容強化(lightline.vim)
