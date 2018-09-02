@@ -25,6 +25,13 @@ path=(
   /sbin(N-/)
 )
 
+# XDG_CONFIG
+typeset -xT XDG_CONFIG_HOME xdg_config_home
+typeset -U xdg_config_home
+xdg_config_home=(
+  ~/.config(N-/)
+)
+
 # SUDO_PATH
 typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
