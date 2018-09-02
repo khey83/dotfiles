@@ -41,9 +41,9 @@ sudo_path=({,/usr/pkg,/usr/local,/usr}/sbin(N-/))
 
 # ファイルが存在したら読み込む関数
 load_if_exists () {
-    if [ -e $1 ]; then
-        source $1
-    fi
+  if [ -e $1 ]; then
+    source $1
+  fi
 }
 
 # HomebrewのGitHub用のAPIトークン
