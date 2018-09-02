@@ -18,6 +18,8 @@ precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
 # エイリアス
+export LSCOLORS=exfxcxdxbxegedabagacad
+alias ls="ls -GF"
 alias ll="ls -lh"
 alias la="ls -lha"
 alias java="java -Dfile.encoding=UTF-8"
