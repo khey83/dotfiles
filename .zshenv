@@ -1,11 +1,13 @@
 # JAVA_HOME
 typeset -xT JAVA_HOME java_home
+typeset -U java_home
 java_home=(
     $HOME/local/java(N-/)
 )
 
 # SCALA_HOME
 typeset -xT SCALA_HOME scala_home
+typeset -U scala_home
 scala_home=(
     $HOME/local/scala(N-/)
 )
